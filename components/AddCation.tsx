@@ -25,6 +25,9 @@ const AddCation = (props: Props) => {
       endTime,
     };
     dispatch(updateCaptions(captionObj));
+    setNewCaption("");
+    setStartTime(currentTime);
+    setEndtTime(currentTime);
   };
 
   useEffect(() => {

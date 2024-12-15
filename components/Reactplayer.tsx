@@ -12,17 +12,18 @@ type Props = {};
 
 const Reactplayer = (props: Props) => {
   const captions = useAppSelector((state) => state.allCaptions.captions);
-  const { videoUrl, currentTime, currentCaption } = useAppSelector(
+  const { videoUrl, currentTime, currentCaption, totalTime } = useAppSelector(
     (state) => state.currentVideo.video
   );
   const dispatch = useDispatch();
   const playerRef = useRef<any>(null);
 
   useEffect(() => {
-    let totalTime: number = playerRef?.current?.getDuration();
+    if (totalTime > 0) return;
+    let videoLength: number = playerRef?.current?.getDuration();
     console.log(totalTime);
-    if (videoUrl && totalTime) dispatch(setTotaltime(totalTime));
-  }, [playerRef?.current?.totalTime]);
+    if (videoUrl && videoLength) dispatch(setTotaltime(videoLength));
+  }, [playerRef?.current, currentTime]);
 
   useEffect(() => {
     let caption: string = captions.filter(
