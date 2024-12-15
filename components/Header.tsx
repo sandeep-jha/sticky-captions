@@ -1,8 +1,8 @@
 import Image from "next/image";
 import React from "react";
 import logo from "../public/stickyCaptionsLogo.png";
-import linkedin from "../assets/logo/linkedin.png";
 import github from "../assets/logo/github.png";
+import docs from "../assets/logo/docs.png";
 import reset from "../assets/logo/back.png";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
@@ -24,16 +24,18 @@ const Header = (props: Props) => {
       <Image src={logo} alt="Sticky Captions" width={150} height={150} />
       <div className="flex items-center">
         <Link
-          href={"https://github.com/ft-jsandeep"}
+          href={"https://github.com/sandeep-jha/sticky-captions"}
           className="cursor-pointer mr-10"
         >
           <Image src={github} alt="github" width={35} height={35} />
         </Link>
         <Link
-          href={"https://www.linkedin.com/in/ft-jsandeep"}
+          href={
+            "https://drive.google.com/file/d/1VWxRDk21n1_1RTpAArwWbEWRRk0daLJy/view?usp=drive_link"
+          }
           className="cursor-pointer mr-10"
         >
-          <Image src={linkedin} alt="linkedin" width={35} height={35} />
+          <Image src={docs} alt="document" width={35} height={35} />
         </Link>
 
         <Image

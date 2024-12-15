@@ -5,27 +5,14 @@ import { useDispatch } from "react-redux";
 import CardWrapper from "./CardWrapper";
 import { setcurrentVideo } from "@/store/videoSlice";
 import { seedCaptions, seedVideo } from "@/assets/seedData";
+import formatSeconds from "@/utils/UtilityFunctions";
 
 type Props = {};
 
 const Captions = (props: Props) => {
   const dispatch = useDispatch();
   const captions = useAppSelector((state) => state.allCaptions.captions);
-  const { videoUrl, currentTime } = useAppSelector(
-    (state) => state.currentVideo.video
-  );
-
-  function formatSeconds(seconds: number) {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const remainingSeconds = seconds % 60;
-
-    const formattedHours = hours.toString().padStart(2, "0");
-    const formattedMinutes = minutes.toString().padStart(2, "0");
-    const formattedSeconds = remainingSeconds.toString().padStart(2, "0");
-
-    return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
-  }
+  const { videoUrl } = useAppSelector((state) => state.currentVideo.video);
 
   const sampleVideoHandler = () => {
     dispatch(setcurrentVideo(seedVideo));
