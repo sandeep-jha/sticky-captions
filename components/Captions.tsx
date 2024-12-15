@@ -24,7 +24,9 @@ const Captions = (props: Props) => {
       <div className="p-5 w-fit">
         {videoUrl ? (
           <div>
-            <p className="text-2xl font-bold">All Captions</p>
+            <p className="text-2xl font-bold w-full flex justify-center mx-auto">
+              All Captions
+            </p>
             {captions.map(
               (
                 { id, caption, startTime, endTime }: CaptionObject,
